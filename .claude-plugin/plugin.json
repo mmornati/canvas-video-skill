@@ -1,0 +1,10 @@
+{
+  "name": "canvas-video",
+  "version": "1.0.0",
+  "description": "Narrated marketing and documentation videos that are web pages: frames drawn in JavaScript on a canvas, a free synthetic voice-over, subtitles, chapters, several languages, optional MP4. Plus a Whisper-driven pronunciation lexicon workflow.",
+  "author": { "name": "Marco Mornati", "url": "https://github.com/mmornati" },
+  "homepage": "https://mmornati.github.io/canvas-video-skill/",
+  "repository": "https://github.com/mmornati/canvas-video-skill",
+  "license": "MIT",
+  "keywords": ["video", "canvas", "javascript", "tts", "voice-over", "documentation", "marketing", "kokoro"]
+}

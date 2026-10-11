@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>canvas-video-skill</title>
+<meta name="description" content="Narrated product videos that are web pages: every frame drawn in JavaScript on a canvas, a free synthetic voice-over, any language. A Claude Code skill.">
+<style>
+  @font-face { font-family: "Inter"; src: url("engine/fonts/inter-latin.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+  @font-face { font-family: "Sora"; src: url("engine/fonts/sora-latin.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("engine/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+  :root { --bg: #f3f5f1; --paper: #fbfcfa; --ink: #0f1a3a; --ink2: #3a4566; --rule: #cfd5cc; --teal: #1f9e78; --cobalt: #2743c9; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0a0f20; --paper: #0c1226; --ink: #e9edf6; --ink2: #b4bdd0; --rule: #26304d; --teal: #33c79a; --cobalt: #7d93ff; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Inter, system-ui, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 48px 16px 64px; }
+  .kicker { font: 600 0.8rem "JetBrains Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin: 0 0 8px; }
+  h1 { font: 800 clamp(2rem, 6vw, 3.4rem)/1.05 Sora, Inter, sans-serif; letter-spacing: -0.03em; margin: 0 0 16px; }
+  h2 { font: 700 1.3rem Sora, Inter, sans-serif; margin: 48px 0 12px; }
+  p.lead { font-size: 1.15rem; color: var(--ink2); max-width: 62ch; margin: 0 0 28px; }
+  a { color: var(--cobalt); }
+  .frame { container-type: inline-size; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 10px; }
+  iframe { display: block; width: 100%; height: calc(56.25cqw + 40px); border: 0; border-radius: 8px; }
+  .langs { margin: 10px 0 0; font-size: .95rem; color: var(--ink2); }
+  pre { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; overflow-x: auto; font: 0.88rem/1.55 "JetBrains Mono", monospace; }
+  ul.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  ul.cards li { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; }
+  ul.cards b { font-family: Sora, Inter, sans-serif; }
+  footer { margin-top: 56px; font-size: .9rem; color: var(--ink2); }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">canvas-video-skill · a Claude Code plugin</p>
+  <h1>This is not a video file.</h1>
+  <p class="lead">Every frame below is drawn in JavaScript on a canvas from elapsed time alone, over a free synthetic voice. Pause it, scrub it, switch the language. It was made by asking a coding agent for it.</p>
+
+  <div class="frame">
+    <iframe id="v" src="leanproxy-mcp/?embed=1&amp;lang=en" title="leanproxy-mcp in 80 seconds" allow="fullscreen; autoplay" allowfullscreen></iframe>
+  </div>
+  <p class="langs">Narration: <a href="#" data-l="en">English</a> · <a href="#" data-l="fr">Français</a> · <a href="#" data-l="it">Italiano</a> · <a href="leanproxy-mcp/?lang=en">full page with chapters</a></p>
+
+  <h2>Install</h2>
+<pre>/plugin marketplace add mmornati/canvas-video-skill
+/plugin install canvas-video@canvas-video-skill</pre>
+  <p>Then ask: <em>“Make a 60-second video presenting this project, in English and French.”</em></p>
+
+  <h2>Made with it</h2>
+  <ul class="cards">
+    <li><b><a href="leanproxy-mcp/?lang=en">leanproxy-mcp in 80 seconds</a></b><br>8 scenes, EN/FR/IT, Kokoro voice, 2 MB.</li>
+    <li><b><a href="https://mmornati.github.io/ai-running-coach/videos/">The Trail (Le Sentier)</a></b><br>A trailer and 20 episodes documenting ai-running-coach, FR/EN.</li>
+    <li><b><a href="hello/">Hello, canvas video</a></b><br>The 13-second template you start from.</li>
+  </ul>
+
+  <footer>
+    <a href="https://github.com/mmornati/canvas-video-skill">GitHub</a> ·
+    <a href="https://blog.mornati.net/canvas-videos-with-voice-over-in-javascript/">The story behind it</a> ·
+    MIT · voice: Kokoro-82M (Apache-2.0)
+  </footer>
+</main>
+<script>
+  document.querySelectorAll("[data-l]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault(); document.getElementById("v").src = `leanproxy-mcp/?embed=1&lang=${a.dataset.l}`;
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "_doc": "Pronunciation fixes, applied to the spoken text only (subtitles keep the original). A [[…]] value is raw IPA for Kokoro; engines without IPA fall back to the original word unless a <lang>@<engine> entry overrides it. Every entry here was checked by transcribing the track with Whisper.",
+  "en": {
+    "MCP": "M C P",
+    "LeanProxy": "Lean Proxy",
+    "AI": "[[ˌeɪˈaɪ]]"
+  },
+  "fr": {
+    "MCP": "M C P",
+    "LeanProxy": "Line Proxy",
+    "IA": "I A",
+    "migrate": "maïgrète",
+    "Homebrew": "Home Brew"
+  },
+  "it": {
+    "MCP": "emme ci pi",
+    "LeanProxy": "[[lˈin prˈɔksi]]",
+    "Homebrew": "[[hˈɔmbru]]"
+  },
+  "en@espeak": {
+    "AI": "A I"
+  },
+  "it@espeak": {
+    "LeanProxy": "Lin Proxy",
+    "Homebrew": "Hom bru"
+  }
+}

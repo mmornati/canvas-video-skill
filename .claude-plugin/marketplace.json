@@ -1,0 +1,12 @@
+{
+  "name": "canvas-video-skill",
+  "owner": { "name": "Marco Mornati", "url": "https://github.com/mmornati" },
+  "metadata": { "description": "Canvas video skills for Claude Code" },
+  "plugins": [
+    {
+      "name": "canvas-video",
+      "source": "./",
+      "description": "Narrated videos drawn in JavaScript on a canvas, with a free voice-over, and a pronunciation lexicon workflow."
+    }
+  ]
+}

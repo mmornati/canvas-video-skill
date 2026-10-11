@@ -1,0 +1,6 @@
+{
+  "_doc": "Pronunciation fixes, applied to the spoken text only (subtitles keep the original). Keys are whole words, case-sensitive. A [[…]] value is raw IPA (Kokoro, Azure). '<lang>@<engine>' entries override '<lang>' for one engine. Use the narration-lexicon skill to find and verify entries.",
+  "en": {
+    "JSON": "jay son"
+  }
+}

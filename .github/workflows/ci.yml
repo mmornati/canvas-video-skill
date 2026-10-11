@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python scripts compile
+        run: python3 -m py_compile skills/*/scripts/*.py
+
+      - name: JavaScript syntax
+        run: |
+          for f in skills/canvas-video/engine/engine.js skills/canvas-video/template/scenes.js docs/*/scenes.js; do
+            # the template has placeholders filled by new_video.py
+            sed 's/__LANGS__/["en"]/' "$f" | node --check --input-type=commonjs || exit 1
+          done
+
+      - name: Narration of the examples is up to date
+        run: python3 skills/canvas-video/scripts/narrate.py --check docs
+
+      - name: Pages engine matches the skill's engine
+        run: diff -r skills/canvas-video/engine docs/engine
+
+      - name: Scaffold a video from the template
+        run: |
+          python3 skills/canvas-video/scripts/new_video.py /tmp/videos/demo --title "CI demo" --langs en,fr
+          test -f /tmp/videos/engine/engine.js
+          python3 -c "import json; d=json.load(open('/tmp/videos/demo/script.json')); assert d['langs']==['en','fr'] and all('fr' in s for s in d['scenes'])"

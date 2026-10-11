@@ -1,0 +1,12 @@
+{
+  "_doc": "Scenes and narration. One entry per scene; each language is a list of sentences (cues). Write numbers in words. Then run narrate.py on this folder.",
+  "langs": ["en"],
+  "scenes": [
+    {"id": "intro", "min": 4, "lead": 0.8,
+     "chapter": {"en": "Introduction"},
+     "en": ["This video is not a video file.", "Every frame is drawn in JavaScript, on a canvas."]},
+    {"id": "outro", "min": 4.5, "tail": 1.5,
+     "chapter": {"en": "Your turn"},
+     "en": ["Edit script dot json, run the narration, and watch the scenes follow the voice."]}
+  ]
+}
